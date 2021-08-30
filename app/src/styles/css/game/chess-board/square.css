@@ -1,0 +1,17 @@
+#chess-board .chess-row:nth-of-type(odd)
+.chess-square:nth-child(even),
+#chess-board .chess-row:nth-of-type(even)
+.chess-square:nth-child(odd) {
+  background-color: var(--dark-gray);
+}
+
+#chess-board .chess-row .chess-square {
+  position: relative;
+}
+
+#chess-board .chess-row .chess-square span {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}

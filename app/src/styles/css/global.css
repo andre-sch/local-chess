@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, button {
+  background-color: transparent;
+  border: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, span, button {
+  font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --light-blue: rgba(18, 118, 211, 0.2);
+  --light-green: rgba(30, 215, 55, 0.2);
+  --light-red: rgba(189, 57, 57, 0.65);
+  --orange: #d86f19;
+  --white: #ffffff;
+  --background: #ededed;
+  --dark-gray: #363636;
+  --black: #181818;
+  --shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+  --small-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+
+span {
+  font-size: 1.125rem;
+}

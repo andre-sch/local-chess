@@ -1,0 +1,25 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+#game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 0;
+}
+
+#chess-board {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(8, 1fr);
+
+  margin: 0 65px;
+  width: min(85vw, max(550px, 55vh));
+  height: min(85vw, max(550px, 55vh));
+
+  background-color: var(--white);
+}

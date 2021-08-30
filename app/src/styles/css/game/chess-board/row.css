@@ -1,0 +1,16 @@
+#chess-board .chess-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+.chess-row span {
+  font-size: 1.25rem;
+  color: var(--black);
+}
+
+#chess-board .chess-row > span {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * min(40px, 6.25vw));
+  transform: translate(50%, -50%);
+}

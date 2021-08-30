@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="http://localhost:3333/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/css/global.css">
+  <link rel="stylesheet" href="src/styles/css/index.css">
+  
+  <link rel="stylesheet" href="src/styles/css/game/chess-board/row.css">
+  <link rel="stylesheet" href="src/styles/css/game/chess-board/square.css">
+  
+  <link rel="stylesheet" href="src/styles/css/modals/index.css">
+  <link rel="stylesheet" href="src/styles/css/modals/game/initialization.css">
+  <title>Chess App</title>
+  <script src="https://kit.fontawesome.com/1671e50560.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="initialization-modal" class="modal">
+    <div class="img-container">
+      <img
+        src="http://localhost:3333/assets/teams.svg"
+        alt="teams"
+        draggable="false"
+      >
+    </div>
+    <button
+      id="start-game"
+      onclick="GameInitialization.start()"
+    >
+      START NEW GAME
+    </button>
+  </div>
+  <div id="game" style="display: none;">
+    <div id="chess-board">
+      <div class="chess-row">
+        <span>8</span>
+        <div class="chess-square" id="square-a8"></div>
+        <div class="chess-square" id="square-b8"></div>
+        <div class="chess-square" id="square-c8"></div>
+        <div class="chess-square" id="square-d8"></div>
+        <div class="chess-square" id="square-e8"></div>
+        <div class="chess-square" id="square-f8"></div>
+        <div class="chess-square" id="square-g8"></div>
+        <div class="chess-square" id="square-h8"></div>
+      </div>
+      <div class="chess-row">
+        <span>7</span>
+        <div class="chess-square" id="square-a7"></div>
+        <div class="chess-square" id="square-b7"></div>
+        <div class="chess-square" id="square-c7"></div>
+        <div class="chess-square" id="square-d7"></div>
+        <div class="chess-square" id="square-e7"></div>
+        <div class="chess-square" id="square-f7"></div>
+        <div class="chess-square" id="square-g7"></div>
+        <div class="chess-square" id="square-h7"></div>
+      </div>
+      <div class="chess-row">
+        <span>6</span>
+        <div class="chess-square" id="square-a6"></div>
+        <div class="chess-square" id="square-b6"></div>
+        <div class="chess-square" id="square-c6"></div>
+        <div class="chess-square" id="square-d6"></div>
+        <div class="chess-square" id="square-e6"></div>
+        <div class="chess-square" id="square-f6"></div>
+        <div class="chess-square" id="square-g6"></div>
+        <div class="chess-square" id="square-h6"></div>
+      </div>
+      <div class="chess-row">
+        <span>5</span>
+        <div class="chess-square" id="square-a5"></div>
+        <div class="chess-square" id="square-b5"></div>
+        <div class="chess-square" id="square-c5"></div>
+        <div class="chess-square" id="square-d5"></div>
+        <div class="chess-square" id="square-e5"></div>
+        <div class="chess-square" id="square-f5"></div>
+        <div class="chess-square" id="square-g5"></div>
+        <div class="chess-square" id="square-h5"></div>
+      </div>
+      <div class="chess-row">
+        <span>4</span>
+        <div class="chess-square" id="square-a4"></div>
+        <div class="chess-square" id="square-b4"></div>
+        <div class="chess-square" id="square-c4"></div>
+        <div class="chess-square" id="square-d4"></div>
+        <div class="chess-square" id="square-e4"></div>
+        <div class="chess-square" id="square-f4"></div>
+        <div class="chess-square" id="square-g4"></div>
+        <div class="chess-square" id="square-h4"></div>
+      </div>
+      <div class="chess-row">
+        <span>3</span>
+        <div class="chess-square" id="square-a3"></div>
+        <div class="chess-square" id="square-b3"></div>
+        <div class="chess-square" id="square-c3"></div>
+        <div class="chess-square" id="square-d3"></div>
+        <div class="chess-square" id="square-e3"></div>
+        <div class="chess-square" id="square-f3"></div>
+        <div class="chess-square" id="square-g3"></div>
+        <div class="chess-square" id="square-h3"></div>
+      </div>
+      <div class="chess-row">
+        <span>2</span>
+        <div class="chess-square" id="square-a2"></div>
+        <div class="chess-square" id="square-b2"></div>
+        <div class="chess-square" id="square-c2"></div>
+        <div class="chess-square" id="square-d2"></div>
+        <div class="chess-square" id="square-e2"></div>
+        <div class="chess-square" id="square-f2"></div>
+        <div class="chess-square" id="square-g2"></div>
+        <div class="chess-square" id="square-h2"></div>
+      </div>
+      <div class="chess-row">
+        <span>1</span>
+        <div class="chess-square" id="square-a1">
+          <span>a</span>
+        </div>
+        <div class="chess-square" id="square-b1">
+          <span>b</span>
+        </div>
+        <div class="chess-square" id="square-c1">
+          <span>c</span>
+        </div>
+        <div class="chess-square" id="square-d1">
+          <span>d</span>
+        </div>
+        <div class="chess-square" id="square-e1">
+          <span>e</span>
+        </div>
+        <div class="chess-square" id="square-f1">
+          <span>f</span>
+        </div>
+        <div class="chess-square" id="square-g1">
+          <span>g</span>
+        </div>
+        <div class="chess-square" id="square-h1">
+          <span>h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./src/game/initialization.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+#initialization-modal {
+  padding: min(30px, 12vw) 0 min(25px, 10vw);
+  box-shadow: var(--shadow);
+}
+
+#initialization-modal .img-container {
+  width: min(167px, 70vw);
+}
+#initialization-modal .img-container img {
+  width: 100%;
+}
+
+#initialization-modal button {
+  width: min(180px, 80vw);
+  height: 40px;
+  padding: 0 5px;
+  
+  border-radius: 5px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: opacity .3s;
+}
+#initialization-modal button:hover,
+#initialization-modal button:active {
+  opacity: 0.95;
+}
+
+#initialization-modal #start-game {
+  margin-top: 14%;
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
