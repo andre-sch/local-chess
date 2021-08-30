@@ -144,5 +144,12 @@
     </div>
   </div>
   <script src="./src/game/initialization.js"></script>
+  <script>
+    document.body.onload = function() {
+      const indexScript = document.createElement('script')
+      indexScript.src = './src/index.js'
+      document.body.appendChild(indexScript)
+    }
+  </script>
 </body>
 </html>
