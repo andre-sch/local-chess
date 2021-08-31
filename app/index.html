@@ -152,6 +152,13 @@
   <script src="./src/utils/get-iterator.js"></script>
   <script src="./src/utils/has-piece-in.js"></script>
   <script>
+    ['bishop', 'knight', 'king', 'pawn', 'queen', 'rook'].forEach(piece => {
+      const pieceRoleScript = document.createElement('script')
+      pieceRoleScript.src = `./src/pieces/roles/${piece}.js`
+
+      document.body.appendChild(pieceRoleScript)
+    })
+
     document.body.onload = function() {
       const indexScript = document.createElement('script')
       indexScript.src = './src/index.js'
