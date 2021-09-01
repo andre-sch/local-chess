@@ -16,7 +16,9 @@ const PiecePossibleMovements = {
     bodyOverlay.style.display = 'block'
     bodyOverlay.onclick = () => this.reset()
   },
-  setSquare(square) {
+  setSquare(square, fromCoordinates, toCoordinates) {
+    square.onclick = () => MovePiece.execute(fromCoordinates, toCoordinates)
+
     const overlay = document.createElement('div')
     overlay.className = 'overlay possible-movement'
     
@@ -28,6 +30,7 @@ const PiecePossibleMovements = {
     
     previousOverlays.forEach(previousOverlay => {
       const previousPossibleMovement = previousOverlay.parentElement
+      previousPossibleMovement.onclick = null
       previousPossibleMovement.removeChild(previousOverlay)
     })
     
