@@ -9,13 +9,23 @@
   position: relative;
 }
 
-#chess-board .chess-row .chess-square button {
+#chess-board .chess-row .chess-square button,
+#chess-board .chess-row .chess-square .overlay {
   position: absolute;
   top: 0;
   left: 0;
 
   width: 100%;
   height: 100%;
+}
+
+#chess-board .chess-row .chess-square .overlay.possible-movement {
+  background-color: var(--light-green);
+  cursor: pointer;
+  z-index: 3;
+}
+#chess-board .chess-row .chess-square .possible-movement:hover {
+  filter: brightness(.5);
 }
 
 #chess-board .chess-row .chess-square span {
