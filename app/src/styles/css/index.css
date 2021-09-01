@@ -22,4 +22,8 @@ body {
   height: min(85vw, max(550px, 55vh));
 
   background-color: var(--white);
+
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
