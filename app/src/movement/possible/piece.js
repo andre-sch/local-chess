@@ -19,6 +19,12 @@ const PiecePossibleMovements = {
   setSquare(square, fromCoordinates, toCoordinates) {
     square.onclick = () => MovePiece.execute(fromCoordinates, toCoordinates)
 
+    square.ondragenter = event => DesktopDrag.squareDragEnter(event)
+    square.ondragleave = event => DesktopDrag.squareDragLeave(event)
+  
+    square.ondragover = event => DesktopDrag.allowDrop(event)
+    square.ondrop = event => DesktopDrag.dropPiece(event)
+    
     const overlay = document.createElement('div')
     overlay.className = 'overlay possible-movement'
     
@@ -30,7 +36,13 @@ const PiecePossibleMovements = {
     
     previousOverlays.forEach(previousOverlay => {
       const previousPossibleMovement = previousOverlay.parentElement
+
       previousPossibleMovement.onclick = null
+      previousPossibleMovement.ondragenter = null
+      previousPossibleMovement.ondragleave = null
+      previousPossibleMovement.ondragover = null
+      previousPossibleMovement.ondrop = null
+
       previousPossibleMovement.removeChild(previousOverlay)
     })
     

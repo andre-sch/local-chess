@@ -24,6 +24,7 @@
   cursor: pointer;
   z-index: 3;
 }
+#chess-board .chess-row .chess-square .possible-movement.drop-zone,
 #chess-board .chess-row .chess-square .possible-movement:hover {
   filter: brightness(.5);
 }
@@ -39,7 +40,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: not-allowed;
   z-index: 2;
+}
+
+#chess-board .chess-row .chess-square button.player-of-turn {
+  cursor: grab;
 }
 
 #chess-board .chess-row .chess-square button img {

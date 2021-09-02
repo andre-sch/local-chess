@@ -6,10 +6,18 @@ const PlayerActions = {
     const [,squareId] = chessSquare.id.split('-')
     
     squareButton.onclick = () => PiecePossibleMovements.show(squareId)
+
+    squareButton.draggable = true
+    squareButton.ondragstart = () => DesktopDrag.startDragPiece(squareId)
+    squareButton.ondragend = () => DesktopDrag.endDragPiece()
   },
   remove(squareButton) {
     squareButton.classList.remove('player-of-turn')
     squareButton.onclick = null
+
+    squareButton.draggable = false
+    squareButton.ondragstart = null
+    squareButton.ondragend = null
   },
   switchPlayer() {
     const chessBoardPieces = document.querySelectorAll('.chess-square button')
