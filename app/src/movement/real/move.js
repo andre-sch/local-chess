@@ -5,6 +5,8 @@ const MovePiece = {
     this.removeOldButton(fromCoordinates)
     this.updateCurrentCoordinates(fromCoordinates, toCoordinates)
     this.createNewImage(toCoordinates)
+
+    PlayerActions.switchPlayer()
   },
   removeOldButton(coordinates) {
     const squareId = PiecesCoordinates.convertToString(coordinates)

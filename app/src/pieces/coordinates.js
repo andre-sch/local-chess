@@ -62,9 +62,12 @@ const PiecesCoordinates = {
     squareImg.src = `${staticProvider}/assets/licensed/${teamSide}/${role}.svg`
     squareImg.alt = `${teamSide} ${role}`
     squareButton.appendChild(squareImg)
-    squareButton.onclick = () => PiecePossibleMovements.show(squareId)
 
     square.appendChild(squareButton)
+
+    if (teamSide == playerOfTurn) {
+      PlayerActions.set(squareButton)
+    }
   },
   convertToArray(coordinates) {
     // e.g.: 'c1' -> [2, 0]
