@@ -26,5 +26,7 @@ const PlayerActions = {
     } else {
       playerOfTurn = 'black'
     }
+
+    document.getElementById('turn-display').innerHTML = `${playerOfTurn} turn`
   }
 }
