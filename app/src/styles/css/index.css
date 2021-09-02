@@ -25,6 +25,14 @@ body {
   padding: 80px 0;
 }
 
+#touch-drag-container img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: none;
+  opacity: .5;
+  z-index: 4;
+}
+
 #chess-board {
   position: relative;
   display: grid;

@@ -10,6 +10,14 @@ const PlayerActions = {
     squareButton.draggable = true
     squareButton.ondragstart = () => DesktopDrag.startDragPiece(squareId)
     squareButton.ondragend = () => DesktopDrag.endDragPiece()
+
+    squareButton.ontouchstart = () => MobileDrag.start(squareId)
+    squareButton.ontouchmove = event => MobileDrag.move(event)
+    squareButton.ontouchend = () => MobileDrag.end()
+    squareButton.ontouchcancel = () => {
+      MobileDrag.reset()
+      PiecePossibleMovements.reset()
+    }
   },
   remove(squareButton) {
     squareButton.classList.remove('player-of-turn')
@@ -18,6 +26,11 @@ const PlayerActions = {
     squareButton.draggable = false
     squareButton.ondragstart = null
     squareButton.ondragend = null
+
+    squareButton.ontouchstart = null
+    squareButton.ontouchmove = null
+    squareButton.ontouchend = null
+    squareButton.ontouchcancel = null
   },
   switchPlayer() {
     const chessBoardPieces = document.querySelectorAll('.chess-square button')
