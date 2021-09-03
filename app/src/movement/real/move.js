@@ -8,6 +8,17 @@ const MovePiece = {
 
     PlayerActions.switchPlayer()
   },
+  getMovementType(fromCoordinates, toCoordinates) {
+    const [hasPieceIn,] = hasPieceInChessSquare(toCoordinates)
+
+    var moveType
+    if (hasPieceIn) {
+      moveType = 'capture'
+    } else {
+      moveType = 'movement'
+    }
+    return moveType
+  },
   removeOldButton(coordinates) {
     const squareId = PiecesCoordinates.convertToString(coordinates)
     const chessSquare = document.getElementById(`square-${squareId}`)
