@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="src/styles/css/game/chess-board/info.css">
   <link rel="stylesheet" href="src/styles/css/game/chess-board/row.css">
   <link rel="stylesheet" href="src/styles/css/game/chess-board/square.css">
+  <link rel="stylesheet" href="src/styles/css/game/dead-pieces.css">
   
   <link rel="stylesheet" href="src/styles/css/modals/index.css">
   <link rel="stylesheet" href="src/styles/css/modals/game/initialization.css">
@@ -39,7 +40,15 @@
   </div>
   <div id="game" style="display: none;">
     <div id="touch-drag-container"></div>
+    <div class="dead-pieces white">
+      <section></section>
+      <section></section>
+    </div>
     <div id="chess-board">
+      <div id="scores">
+        <span id="black-score">0</span>
+        <span id="white-score">0</span>
+      </div>
       <div id="topside-text">
         <span id="turn-display">white turn</span>
       </div>
@@ -147,6 +156,10 @@
           <span>h</span>
         </div>
       </div>
+    </div>
+    <div class="dead-pieces black">
+      <section></section>
+      <section></section>
     </div>
   </div>
   <script src="./src/game/initialization.js"></script>

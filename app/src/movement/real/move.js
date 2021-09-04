@@ -28,8 +28,10 @@ const MovePiece = {
 
     var moveType
     if (hasPieceIn) {
+      CapturePiece.execute(toCoordinates)
       moveType = 'capture'
     } else if (isEnPassant) {
+      CapturePiece.execute(EnPassant.lastDoubleStepPawn.coordinates)
       moveType = 'en passant'
     } else if (isCastling) {
       Castling.moveRook()

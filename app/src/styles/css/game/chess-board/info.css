@@ -1,3 +1,25 @@
+#scores {
+  position: absolute;
+  top: -40px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#scores span {
+  width: 100px;
+  padding: 3px 0;
+  text-align: center;
+}
+#white-score {
+  background-color: var(--white);
+  color: var(--dark-gray);
+}
+#black-score {
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
+
 #topside-text {
   position: absolute;
   top: -40px;
