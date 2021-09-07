@@ -19,6 +19,7 @@
   
   <link rel="stylesheet" href="src/styles/css/modals/index.css">
   <link rel="stylesheet" href="src/styles/css/modals/game/initialization.css">
+  <link rel="stylesheet" href="src/styles/css/modals/promotion.css">
   <title>Chess App</title>
   <script src="https://kit.fontawesome.com/1671e50560.js" crossorigin="anonymous"></script>
 </head>
@@ -163,6 +164,34 @@
       <section></section>
       <section></section>
     </div>
+    <div id="promotion" class="modal" style="display: none;">
+      <div class="text">
+        <h1>promotion</h1>
+        <h2>CHOOSE.A.PIECE</h2>
+      </div>
+      <div id="choices">
+        <button
+          id="queen-choice"
+        >
+          <i class="fas fa-chess-queen"></i>
+        </button>
+        <button
+          id="rook-choice"
+        >
+          <i class="fas fa-chess-rook"></i>
+        </button>
+        <button
+          id="bishop-choice"
+        >
+          <i class="fas fa-chess-bishop"></i>
+        </button>
+        <button
+          id="knight-choice"
+        >
+          <i class="fas fa-chess-knight"></i>
+        </button>
+      </div>
+    </div>
   </div>
   <script src="./src/game/initialization.js"></script>
   
@@ -190,6 +219,7 @@
 
   <script src="./src/styles/body-overlay.js"></script>
   <script src="./src/styles/denied-movement.js"></script>
+  <script src="./src/styles/promotion-subtitle.js"></script>
 
   <script src="./src/utils/get-iterator.js"></script>
   <script src="./src/utils/has-piece-in.js"></script>

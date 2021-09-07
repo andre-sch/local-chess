@@ -1,0 +1,48 @@
+#promotion {
+  padding: min(25px, 12vw) 0;
+}
+
+#promotion .text h2 {
+  margin-top: 6px;
+}
+
+#promotion #choices {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: min(15px, 6vw);
+  margin-top: min(30px, 12vw);
+  width: min(175px, 70vw);
+  height: min(175px, 70vw);
+}
+
+#promotion #choices button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  transition: filter .2s;
+}
+#promotion #choices button:hover {
+  filter: brightness(.98);
+}
+#promotion #choices button:active {
+  box-shadow: inset var(--shadow);
+}
+
+#promotion #choices button i {
+  font-size: min(50px, 20vw);
+}
+
+#promotion #choices.black-team button {
+  background-color: var(--background);
+}
+#promotion #choices.black-team button i {
+  color: var(--dark-gray);
+}
+#promotion #choices.white-team button {
+  background-color: var(--dark-gray);
+}
+#promotion #choices.white-team button i {
+  color: var(--white);
+}
