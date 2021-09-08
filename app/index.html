@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="src/styles/css/game/chess-board/square.css">
   <link rel="stylesheet" href="src/styles/css/game/dead-pieces.css">
   <link rel="stylesheet" href="src/styles/css/game/denied-movement.css">
+  <link rel="stylesheet" href="src/styles/css/game/restart.css">
   
   <link rel="stylesheet" href="src/styles/css/modals/index.css">
   <link rel="stylesheet" href="src/styles/css/modals/game/initialization.css">
@@ -56,6 +57,17 @@
         <span id="turn-display">white turn</span>
         <span id="king-check"></span>
       </div>
+      <button
+        class="restart-game"
+        title="restart game"
+        onclick="GameOver.resetGame()"
+      >
+        <img
+          src="http://localhost:3333/assets/restart.svg"
+          alt="restart game"
+          draggable="false"
+        >
+      </button>
       <div class="chess-row">
         <span>8</span>
         <div class="chess-square" id="square-a8"></div>
