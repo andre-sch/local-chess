@@ -58,6 +58,7 @@ const GameOver = {
     Promotion.resetProps()
     Castling.resetProps()
     EnPassant.resetProps()
+    FakeMovement.resetProps()
     LastMovement.reset()
 
     TeamPossibleMovements.black = null
