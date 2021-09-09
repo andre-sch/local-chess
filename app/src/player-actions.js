@@ -67,5 +67,21 @@ const PlayerActions = {
       }, 100)
       return
     }
+    this.saveCurrentData()
+  },
+  saveCurrentData() {
+    localStorage.setItem('savedGame', JSON.stringify({
+      pieces: PiecesCoordinates.current,
+      savedDeadPieces: deadPieces,
+      savedLastMovement: {
+        from: LastMovement.fromCoordinates,
+        to: LastMovement.toCoordinates
+      },
+      castlingPiecesHaveMoved: Castling.involvedPiecesHaveMoved,
+      lastDoubleStepPawn: EnPassant.lastDoubleStepPawn,
+      enPassantCaptureCoordinates: EnPassant.captureCoordinates,
+      turn: playerOfTurn,
+      check: kingInCheck
+    }))
   }
 }

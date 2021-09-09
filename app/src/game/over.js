@@ -1,5 +1,7 @@
 const GameOver = {
   display(type, winner) {
+    localStorage.removeItem('savedGame')
+    
     const img = document.createElement('img')
 
     img.src = `${staticProvider}/assets/winner/${winner}.svg`
@@ -46,6 +48,7 @@ const GameOver = {
     document.getElementById('black-king-still-in-check-animation').remove()
     document.getElementById('white-king-still-in-check-animation').remove()
 
+    localStorage.removeItem('savedGame')
     sessionStorage.removeItem('draggingPiece')
     playerOfTurn = 'white'
     kingInCheck = ''
