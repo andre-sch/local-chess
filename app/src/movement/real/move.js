@@ -106,6 +106,11 @@ const MovePiece = {
 
     const enemyKingInCheck = Check.enemyKing(toCoordinates)
     if (enemyKingInCheck) {
+      const isCheckmate = Checkmate.verify(toCoordinates)
+      if (isCheckmate) {
+        GameOver.display('checkmate', teamSide)
+        return
+      }
       Check.display(toCoordinates)
     }
 
