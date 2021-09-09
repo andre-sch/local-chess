@@ -19,6 +19,7 @@
   
   <link rel="stylesheet" href="src/styles/css/modals/index.css">
   <link rel="stylesheet" href="src/styles/css/modals/game/initialization.css">
+  <link rel="stylesheet" href="src/styles/css/modals/game/over.css">
   <link rel="stylesheet" href="src/styles/css/modals/promotion.css">
   <title>Chess App</title>
   <script src="https://kit.fontawesome.com/1671e50560.js" crossorigin="anonymous"></script>
@@ -195,6 +196,25 @@
           <i class="fas fa-chess-knight"></i>
         </button>
       </div>
+    </div>
+    <div id="game-over" class="modal" style="display: none;">
+      <div id="winner-container">
+      </div>
+      <div class="text">
+        <h1></h1>
+        <h2></h2>
+      </div>
+      <button
+        class="restart-game"
+        title="restart game"
+        onclick="GameOver.hide();GameOver.resetGame()"
+      >
+        <img
+          src="http://localhost:3333/assets/restart.svg"
+          alt="restart game"
+          draggable="false"
+        >
+      </button>
     </div>
   </div>
   <script src="./src/game/initialization.js"></script>
