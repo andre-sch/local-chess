@@ -59,5 +59,13 @@ const PlayerActions = {
     TeamPossibleMovements.list(oppositeTeam)
 
     document.getElementById('turn-display').innerHTML = `${playerOfTurn} turn`
+
+    const isStalemate = Stalemate.verify()
+    if (isStalemate) {
+      setTimeout(() => {
+        GameOver.display('stalemate', 'nobody')
+      }, 100)
+      return
+    }
   }
 }
