@@ -1,0 +1,31 @@
+@media (max-width: 200px) {
+  #initialization-modal button {
+    height: 30px;
+  }
+
+  #promotion #choices button {
+    box-shadow: var(--small-shadow);
+  }
+
+  #game-over {
+    padding: 20px 5px 15px;
+  }
+
+  #topside-text #king-check,
+  #game-over .text h2 {
+    display: none;
+  }
+}
+
+@media (max-width: 120px) {
+  html {
+    font-size: 7px;
+  }
+  #promotion {
+    border-radius: 5px;
+  }
+  #promotion .text h2,
+  #topside-text #turn-display {
+    display: none;
+  }
+}

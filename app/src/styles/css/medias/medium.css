@@ -1,0 +1,44 @@
+@media(max-width: 1000px), (orientation: portrait) {
+  html {
+    font-size: 14px;
+  }
+
+  #game {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+
+  .dead-pieces {
+    flex-direction: column;
+  }
+  .dead-pieces section {
+    flex-direction: row;
+    /* initial dimensions * (0.75 -> 0.5) */
+    width: max(200px, min(300px, 43.6vw));
+    height: max(25px, min(36.5px, 5.45vw));
+  }
+  .dead-pieces section button {
+    height: 100%;
+  }
+
+  #chess-board {
+    margin: 50px 0;
+  }
+  #chess-board .restart-game {
+    top: initial;
+    bottom: calc(-1 * calc(50px + max(25px, min(36.5px, 5.45vw))));
+    right: 0;
+    transform: translateY(50%);
+  }
+
+  #scores {
+    top: calc(-1 * calc(50px + max(25px, min(36.5px, 5.45vw))));
+  }
+  #scores span {
+    width: max(32px, min(80px, 11.63vw));
+  }
+
+  #topside-text {
+    top: -27px;
+  }
+}

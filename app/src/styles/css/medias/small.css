@@ -1,0 +1,63 @@
+@media (max-width: 445px) {
+  html {
+    font-size: 12px;
+  }
+
+  .dead-pieces section {
+    width: min(200px, 44.9vw);
+    height: min(25px, 5.62vw);
+  }
+
+  #chess-board {
+    margin: 30px 0;
+  }
+
+  #chess-board .restart-game {
+    bottom: calc(-1 * calc(30px + min(25px, 5.62vw)));
+  }
+  #scores {
+    top: calc(-1 * calc(30px + min(25px, 5.62vw)));
+  }
+
+  #topside-text {
+    top: -16px;
+  }
+}
+
+@media (max-width: 270px) {
+  html {
+    font-size: 10px;
+  }
+  #game {
+    padding: 0;
+  }
+
+  .dead-pieces, .chess-row span {
+    display: none;
+  }
+
+  #chess-board {
+    margin: 0;
+  }
+  #chess-board .restart-game {
+    bottom: calc(-1 * min(13px, 7.5vw));
+    left: 50%;
+    transform: translate(-50%, 100%);
+    width: 25px;
+    height: 25px;
+  }
+
+  #scores {
+    top: calc(-1 * min(20px, 10vw));
+    transform: translateY(-100%)
+  }
+
+  #topside-text {
+    top: calc(-1 * min(11px, 5.5vw));
+  }
+
+  #game-over .restart-game {
+    width: 30px;
+    height: 30px;
+  }
+}
