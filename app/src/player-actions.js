@@ -43,11 +43,16 @@ const PlayerActions = {
     }
 
     EnPassant.disableStale()
+    Check.hide()
 
     if (playerOfTurn == 'black') {
       playerOfTurn = 'white'
     } else {
       playerOfTurn = 'black'
+    }
+
+    if (kingInCheck != playerOfTurn) {
+      kingInCheck = ''
     }
 
     const oppositeTeam = playerOfTurn == 'black' ? 'white' : 'black'

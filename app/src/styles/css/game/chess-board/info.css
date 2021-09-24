@@ -31,3 +31,7 @@
 #topside-text #turn-display {
   color: var(--dark-gray);
 }
+#topside-text #king-check em {
+  font-style: normal;
+  color: var(--orange);
+}

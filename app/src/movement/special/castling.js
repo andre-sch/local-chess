@@ -33,6 +33,8 @@ const Castling = {
     }
   },
   incrementMovement(possibleMovements, kingCoordinates) {
+    if (kingInCheck) return possibleMovements
+
     const teamSide = getPieceIterator(kingCoordinates, 'teamSide')
     if (this.involvedPiecesHaveMoved[teamSide].king) return possibleMovements
 

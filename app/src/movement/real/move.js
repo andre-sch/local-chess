@@ -7,18 +7,28 @@ const MovePiece = {
       Castling.changeMoveState(fromCoordinates)
     }
 
+    var moveType = this.getMovementType(fromCoordinates, toCoordinates)
+
     this.removeOldButton(fromCoordinates)
     this.updateCurrentCoordinates(fromCoordinates, toCoordinates)
     this.createNewImage(toCoordinates)
 
     TeamPossibleMovements.list('black')
     TeamPossibleMovements.list('white')
-
+    
+    if (this.isCheckingYourself(fromCoordinates, toCoordinates, moveType)) return
+    
     if (role == 'pawn') {
       const isDoubleStep = Pawn.movedTwoSteps(fromCoordinates, toCoordinates)
       if (isDoubleStep) {
         EnPassant.set(toCoordinates)
       }
+    }
+
+    const enemyKingInCheck = Check.enemyKing(toCoordinates)
+
+    if (enemyKingInCheck) {
+      Check.display(toCoordinates)
     }
 
     LastMovement.set(fromCoordinates, toCoordinates)
@@ -43,6 +53,24 @@ const MovePiece = {
       moveType = 'movement'
     }
     return moveType
+  },
+  isCheckingYourself(fromCoordinates, toCoordinates, moveType) {
+    const teamSide = getPieceIterator(toCoordinates, 'teamSide')
+    const role = getPieceIterator(toCoordinates, 'role')
+
+    const ownKingInCheck = Check.ownKing(toCoordinates)
+    if (ownKingInCheck) {
+      Check.revertMovement(fromCoordinates, toCoordinates, moveType)
+      if (role == 'king') {
+        DeniedMovementAnimation.removeDiv(toCoordinates, teamSide)
+      }
+      DeniedMovementAnimation.execute(teamSide)
+      return true
+    }
+    if (role == 'king') {
+      DeniedMovementAnimation.removeDiv(fromCoordinates, teamSide)
+    }
+    return false
   },
   removeOldButton(coordinates) {
     const squareId = PiecesCoordinates.convertToString(coordinates)
