@@ -5,4 +5,13 @@ class King extends NonContinuousMovement {
       [0, 1], [1, 1], [1, 0], [1, -1], [0, -1], [-1, -1], [-1, 0], [-1, 1]
     ]
   }
+  listPossibleMovements(coordinates) {
+    let kingPossibleMovements = super.listPossibleMovements(coordinates)
+    kingPossibleMovements = Castling.incrementMovement(
+      kingPossibleMovements,
+      coordinates
+    )
+
+    return kingPossibleMovements
+  }
 }

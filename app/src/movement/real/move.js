@@ -1,6 +1,11 @@
 const MovePiece = {
   execute(fromCoordinates, toCoordinates) {
     PiecePossibleMovements.reset()
+    const role = getPieceIterator(fromCoordinates, 'role')
+  
+    if (role == 'king' || role == 'rook') {
+      Castling.changeMoveState(fromCoordinates)
+    }
 
     this.removeOldButton(fromCoordinates)
     this.updateCurrentCoordinates(fromCoordinates, toCoordinates)
@@ -10,10 +15,14 @@ const MovePiece = {
   },
   getMovementType(fromCoordinates, toCoordinates) {
     const [hasPieceIn,] = hasPieceInChessSquare(toCoordinates)
+    const isCastling = Castling.verify(fromCoordinates, toCoordinates)
 
     var moveType
     if (hasPieceIn) {
       moveType = 'capture'
+    } else if (isCastling) {
+      Castling.moveRook()
+      moveType = 'castling'
     } else {
       moveType = 'movement'
     }
