@@ -42,6 +42,8 @@ const PlayerActions = {
       }
     }
 
+    EnPassant.disableStale()
+
     if (playerOfTurn == 'black') {
       playerOfTurn = 'white'
     } else {

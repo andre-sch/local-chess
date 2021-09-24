@@ -81,7 +81,30 @@ class Pawn {
       if (hasPieceIn && pieceInSquareTeamSide != targetPieceTeamSide) {
         possibleMovements.push([SumX, SumY])
       }
+
+      if (EnPassant.captureCoordinates) {
+        const [
+          enPassantCoordinateX,
+          enPassantCoordinateY
+        ] = EnPassant.captureCoordinates
+
+        if (enPassantCoordinateX == SumX && enPassantCoordinateY == SumY) {
+          possibleMovements.push([SumX, SumY])
+        }
+      }
     }
     return possibleMovements
+  }
+  static movedTwoSteps(fromCoordinates, toCoordinates) {
+    const targetPieceTeamSide = getPieceIterator(toCoordinates, 'teamSide')
+    
+    const [,fromCoordinateY] = fromCoordinates
+    const [,toCoordinateY] = toCoordinates
+    const relativeY = {black: -2, white: 2}
+
+    if (
+      toCoordinateY == fromCoordinateY + relativeY[targetPieceTeamSide]
+    ) return true
+    return false
   }
 }

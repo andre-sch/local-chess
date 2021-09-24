@@ -11,15 +11,25 @@ const MovePiece = {
     this.updateCurrentCoordinates(fromCoordinates, toCoordinates)
     this.createNewImage(toCoordinates)
 
+    if (role == 'pawn') {
+      const isDoubleStep = Pawn.movedTwoSteps(fromCoordinates, toCoordinates)
+      if (isDoubleStep) {
+        EnPassant.set(toCoordinates)
+      }
+    }
+
     PlayerActions.switchPlayer()
   },
   getMovementType(fromCoordinates, toCoordinates) {
     const [hasPieceIn,] = hasPieceInChessSquare(toCoordinates)
+    const isEnPassant = EnPassant.verify(fromCoordinates, toCoordinates)
     const isCastling = Castling.verify(fromCoordinates, toCoordinates)
 
     var moveType
     if (hasPieceIn) {
       moveType = 'capture'
+    } else if (isEnPassant) {
+      moveType = 'en passant'
     } else if (isCastling) {
       Castling.moveRook()
       moveType = 'castling'
