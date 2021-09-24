@@ -105,15 +105,25 @@ const MovePiece = {
     const teamSide = getPieceIterator(toCoordinates, 'teamSide')
 
     const enemyKingInCheck = Check.enemyKing(toCoordinates)
+    const isInDeadPosition = DeadPosition.verify()
+
     if (enemyKingInCheck) {
       const isCheckmate = Checkmate.verify(toCoordinates)
       if (isCheckmate) {
         GameOver.display('checkmate', teamSide)
         return
       }
-      Check.display(toCoordinates)
+      if (!isInDeadPosition) {
+        Check.display(toCoordinates)
+      }
     }
 
+    if (isInDeadPosition) {
+      setTimeout(() => {
+        GameOver.display('dead.position', 'nobody')
+      }, 100)
+      return
+    }
     PlayerActions.switchPlayer()
   }
 }
