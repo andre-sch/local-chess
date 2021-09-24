@@ -12,6 +12,19 @@ const PiecePossibleMovements = {
       this.setSquare(possibleSquare, previousCoordinates, nextCoordinates)
     }
 
+    // avoid color mixing
+    const lastMovementOverlays = document.getElementsByClassName('last-movement')
+    overlayIteration:
+    for (const lastMovementOverlay of lastMovementOverlays) {
+      const square = lastMovementOverlay.parentElement
+      for (const child of square.children) {
+        if (child.className.includes('possible-movement')) {
+          lastMovementOverlay.style.display = 'none'
+          continue overlayIteration
+        }
+      }
+    }
+
     const bodyOverlay = document.getElementById('body-overlay')
     bodyOverlay.style.display = 'block'
     bodyOverlay.onclick = () => this.reset()
@@ -45,6 +58,11 @@ const PiecePossibleMovements = {
 
       previousPossibleMovement.removeChild(previousOverlay)
     })
+    
+    const lastMovementOverlays = document.getElementsByClassName('last-movement')
+    for (const lastMovementOverlay of lastMovementOverlays) {
+      lastMovementOverlay.style.display = 'block'
+    }
     
     const bodyOverlay = document.getElementById('body-overlay')
     bodyOverlay.style.display = 'none'

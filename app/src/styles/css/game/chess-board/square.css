@@ -19,6 +19,9 @@
   height: 100%;
 }
 
+#chess-board .chess-row .chess-square .overlay.last-movement {
+  background-color: var(--light-blue);
+}
 #chess-board .chess-row .chess-square .overlay.possible-movement {
   background-color: var(--light-green);
   cursor: pointer;

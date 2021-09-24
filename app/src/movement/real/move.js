@@ -18,6 +18,7 @@ const MovePiece = {
       }
     }
 
+    LastMovement.set(fromCoordinates, toCoordinates)
     PlayerActions.switchPlayer()
   },
   getMovementType(fromCoordinates, toCoordinates) {
