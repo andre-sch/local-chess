@@ -9,5 +9,11 @@ const GameInitialization = {
     PiecesCoordinates.initialize()
     document.getElementById('initialization-modal').style.display = 'none'
     document.getElementById('game').style.display = 'flex'
+  },
+  showContinueButton() {
+    const savedData = localStorage.getItem('savedGame')
+    if (savedData) {
+      document.getElementById('continue-game').style.display = 'inline-block'
+    }
   }
 }

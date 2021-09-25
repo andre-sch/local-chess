@@ -30,3 +30,8 @@
   background-color: var(--dark-gray);
   color: var(--white);
 }
+#initialization-modal #continue-game {
+  display: none;
+  margin-top: 2%;
+  color: var(--dark-gray);
+}

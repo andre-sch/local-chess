@@ -5,3 +5,5 @@ let deadPieces = {
   black: [],
   white: []
 }
+
+GameInitialization.showContinueButton()
