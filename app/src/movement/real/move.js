@@ -2,6 +2,7 @@ const MovePiece = {
   execute(fromCoordinates, toCoordinates) {
     PiecePossibleMovements.reset()
     const role = getPieceIterator(fromCoordinates, 'role')
+    const teamSide = getPieceIterator(fromCoordinates, 'teamSide')
   
     if (role == 'king' || role == 'rook') {
       Castling.changeMoveState(fromCoordinates)
@@ -25,14 +26,14 @@ const MovePiece = {
       }
     }
 
-    const enemyKingInCheck = Check.enemyKing(toCoordinates)
-
-    if (enemyKingInCheck) {
-      Check.display(toCoordinates)
+    const isPromotion = Promotion.verify(fromCoordinates, toCoordinates, moveType)
+    if (isPromotion) {
+      Promotion.display(teamSide)
+      return
     }
 
     LastMovement.set(fromCoordinates, toCoordinates)
-    PlayerActions.switchPlayer()
+    this.afterPromotion(toCoordinates)
   },
   getMovementType(fromCoordinates, toCoordinates) {
     const [hasPieceIn,] = hasPieceInChessSquare(toCoordinates)
@@ -99,5 +100,15 @@ const MovePiece = {
   createNewImage(coordinates) {
     const squareId = PiecesCoordinates.convertToString(coordinates)
     PiecesCoordinates.setPieceInSquare(squareId)
+  },
+  afterPromotion(toCoordinates) {
+    const teamSide = getPieceIterator(toCoordinates, 'teamSide')
+
+    const enemyKingInCheck = Check.enemyKing(toCoordinates)
+    if (enemyKingInCheck) {
+      Check.display(toCoordinates)
+    }
+
+    PlayerActions.switchPlayer()
   }
 }
