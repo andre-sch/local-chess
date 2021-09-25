@@ -63,6 +63,9 @@ const PiecesCoordinates = {
     squareImg.alt = `${teamSide} ${role}`
     squareButton.appendChild(squareImg)
 
+    if (role == 'king') {
+      DeniedMovementAnimation.appendDiv(teamSide, square)
+    }
     square.appendChild(squareButton)
 
     if (teamSide == playerOfTurn) {
