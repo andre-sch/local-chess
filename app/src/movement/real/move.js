@@ -11,6 +11,9 @@ const MovePiece = {
     this.updateCurrentCoordinates(fromCoordinates, toCoordinates)
     this.createNewImage(toCoordinates)
 
+    TeamPossibleMovements.list('black')
+    TeamPossibleMovements.list('white')
+
     if (role == 'pawn') {
       const isDoubleStep = Pawn.movedTwoSteps(fromCoordinates, toCoordinates)
       if (isDoubleStep) {

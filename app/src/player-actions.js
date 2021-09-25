@@ -50,6 +50,9 @@ const PlayerActions = {
       playerOfTurn = 'black'
     }
 
+    const oppositeTeam = playerOfTurn == 'black' ? 'white' : 'black'
+    TeamPossibleMovements.list(oppositeTeam)
+
     document.getElementById('turn-display').innerHTML = `${playerOfTurn} turn`
   }
 }
